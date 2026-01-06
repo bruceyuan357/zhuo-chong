@@ -1,0 +1,59 @@
+[project]
+name = "zhuo-chong"
+version = "2.0.0"
+description = "水潭桌宠 - A beautiful desktop water pond pet"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "bruceyuan357"},
+    {name = "richer-richard"},
+]
+keywords = ["desktop-pet", "pygame", "water-pond", "桌宠"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Games/Entertainment",
+]
+dependencies = [
+    "pygame>=2.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/richer-richard/zhuo-chong"
+Repository = "https://github.com/richer-richard/zhuo-chong.git"
+Issues = "https://github.com/richer-richard/zhuo-chong/issues"
+
+[project.scripts]
+zhuo-chong = "桌宠:main"
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+disallow_untyped_defs = false
+check_untyped_defs = true
+
+[tool.pylint.messages_control]
+disable = [
+    "C0114",  # missing-module-docstring
+    "C0115",  # missing-class-docstring
+    "C0116",  # missing-function-docstring
+]
+
+[tool.ruff]
+target-version = "py38"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]
