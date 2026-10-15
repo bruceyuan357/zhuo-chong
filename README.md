@@ -1,134 +1,88 @@
-# 🌊 水潭桌宠 (Desktop Water Pond Pet)
+# 栖水 · 水潭桌宠
 
-一个精美的桌面宠物应用，展示一个充满生机的水潭场景，包含动态天气效果、游鱼、荷叶等元素。
+留一点宁静，也做一点小事。一个完全离线的 Python 桌面陪伴：看游鱼、记小事、专注一刻，再好好休息。
 
-![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
-![Pygame](https://img.shields.io/badge/Pygame-2.0+-green.svg)
-![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+## 这次有什么不同
 
-## ✨ 特色功能
+- **一方小庭院**：原创水潭插画、游动锦鲤、点击喂鱼与右键水花。日间、晨昏、夜色跟随本机时间，也可手动选择光景与细雨。
+- **专注与休息**：25 / 45 / 60 分钟专注，5 分钟休息。支持暂停、继续与重新计时；完成后手动开始下一阶段，不会自动连跑。
+- **随手记**：中文输入、输入法组合文字和粘贴；添加、完成、恢复、移除，最多 50 件、每件 80 字。超过两行可用滚轮或 Page Up / Page Down 浏览，再用 Tab 逐项操作。
+- **小小的正反馈**：今日已完成的专注分钟与次数；累计完成 3 段专注，解锁水潭的金色萤光。
+- **迷你陪伴**：按 C 收起到 320 × 286 的小窗，保留计时与水潭互动；展开后待办仍在。
+- **轻轻提醒**：运行满 45 分钟时在水潭内提醒喝水与远眺；可选轻声提示和减少动态。提醒仅在应用运行时生效，无系统推送。
+- **本机存档**：保存待办、设置、今日记录与剩余计时。退出后重开保持暂停；不会把离线时间算成专注。存档损坏会先备份，保存采用临时文件加原子替换。
 
-### 🎨 视觉效果
-- **动态天空系统** - 根据实际时间自动切换：黎明、早晨、正午、下午、黄昏、夜晚
-- **太阳轨迹** - 模拟真实的太阳升落，采用正弦曲线运动
-- **月亮与星星** - 夜间显示闪烁的星空和月牙月亮
-- **日照金山彩蛋** - 连续运行3天后解锁金山景观
-- **水波纹效果** - 逼真的椭圆形水波扩散动画
+## 启动
 
-### 🐟 互动元素
-- **游鱼系统** - 水中有小鱼游动，偶尔跃出水面
-- **荷叶摇摆** - 水面上漂浮着轻轻摇摆的荷叶
-- **水滴跃动** - 按键触发水滴飞溅，带物理重力效果
-- **下雨效果** - 非白天时段随机下雨，雨滴落入水面产生波纹
+需要 Python 3.9+ 和带图形桌面的系统。新环境建议使用 Python 3.11 或 3.13；Python 3.14 需要已有可用的 pygame 构建。当前在 macOS / Python 3.14 / pygame 2.6.1 上进行过原生窗口验证；Windows 与 Linux 仍需实机验证。
 
-### 🖱️ 交互控制
-- **窗口拖动** - 左键按住拖动窗口到任意位置
-- **水滴溅起** - 按任意键产生水滴跃动
-- **大量水花** - 按空格键产生大量水花
-- **手动下雨** - 按 R 键触发下雨
-- **点击波纹** - 右键点击水面产生波纹
-- **退出程序** - 按 ESC 键退出
-
-## 🚀 快速开始
-
-### 环境要求
-- Python 3.8+
-- pygame 2.0+
-
-### 安装步骤
-
-1. **克隆仓库**
-   ```bash
-   git clone https://github.com/richer-richard/zhuo-chong.git
-   cd zhuo-chong
-   ```
-
-2. **安装依赖**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **运行程序**
-   ```bash
-   python 桌宠.py
-   ```
-
-### 一键运行
 ```bash
-pip install pygame && python 桌宠.py
+git clone https://github.com/bruceyuan357/zhuo-chong.git
+cd zhuo-chong
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python 桌宠.py
 ```
 
-## 🎮 操作指南
+macOS 安装依赖后，也可以双击 `启动栖水.command` 启动。
 
-| 操作 | 效果 |
-|------|------|
-| 左键拖动 | 移动窗口位置 |
-| 任意键 | 溅起一滴水 |
-| 空格键 | 溅起大量水花 |
-| R 键 | 触发下雨效果 |
-| 右键点击水面 | 产生波纹和水滴 |
-| ESC | 退出程序 |
+Windows 激活虚拟环境使用 `.venv\Scripts\activate`。Linux 请安装一个中文字体，例如 Noto Sans CJK，避免中文显示为方框。
 
-## 🏗️ 项目结构
+也可以作为本地软件包安装，安装后在任意目录启动：
 
-```
-zhuo-chong/
-├── 桌宠.py           # 主程序文件
-├── requirements.txt  # 依赖清单
-├── README.md         # 项目说明
-└── LICENSE           # 开源协议
+```bash
+python -m pip install .
+zhuo-chong
 ```
 
-## 📐 技术架构
+## 操作
 
-项目采用面向对象设计，主要包含以下组件：
+| 操作 | 功能 |
+| --- | --- |
+| 拖动顶部 | 移动窗口；窗口具有独立的最小化与关闭按钮 |
+| 点击水面 / 右键水面 | 喂鱼 / 产生水花 |
+| 空格 | 开始或暂停当前专注、休息 |
+| N / Enter | 输入小事 / 保存小事；编辑时空格正常输入 |
+| Cmd+V / Ctrl+V | 在输入框中粘贴文字 |
+| R / C | 切换细雨 / 展开或收起迷你模式 |
+| H / F1 | 打开操作指南 |
+| Page Up / Page Down | 查看上一页 / 下一页待办 |
+| Tab / Shift+Tab / Enter | 移动焦点 / 反向移动 / 操作焦点控件 |
+| Esc | 关闭设置或指南、离开输入框；再次按下保存并退出 |
 
-- **Config** - 游戏配置（窗口大小、FPS、各种参数）
-- **ColorTheme** - 颜色主题定义
-- **游戏对象** - WaterDrop、RainDrop、Ripple、Fish、LotusLeaf、Star
-- **GameState** - 游戏状态管理器
-- **Renderer** - 渲染器（负责所有绘制逻辑）
-- **DesktopPet** - 主程序类（事件处理、主循环）
+计时运行时，先暂停再切换时长或重置，避免误触丢失进度。左侧专注和休息标签可手动切换。
 
-## 🎯 彩蛋
+## 存档与隐私
 
-- 🏔️ **日照金山**：连续运行程序满 3 天，将解锁日照金山彩蛋场景！
+应用无需账号，不请求网络，不收集遥测。默认存档目录：
 
-## ⚙️ 自定义配置
+- macOS：`~/Library/Application Support/PondPet/state.json`
+- Windows：`%APPDATA%/PondPet/state.json`
+- Linux：`$XDG_STATE_HOME/pondpet/state.json`，默认 `~/.local/state/pondpet/state.json`
 
-可以通过修改 `Config` 类来自定义游戏参数：
+可用 `--data-dir PATH` 或 `PONDPET_DATA_DIR` 指定独立存档目录。剪贴板仅在输入框内主动执行粘贴时读取。
 
-```python
-@dataclass(frozen=True)
-class Config:
-    WINDOW_WIDTH: int = 320      # 窗口宽度
-    WINDOW_HEIGHT: int = 320     # 窗口高度
-    FPS: int = 60                # 帧率
-    SUN_RISE_HOUR: int = 6       # 日出时间
-    SUN_SET_HOUR: int = 18       # 日落时间
-    FISH_COUNT: int = 2          # 鱼的数量
-    # ... 更多配置
+这仍是 pygame 绘制的普通浮动窗口，不支持跨平台的逐像素透明、点击穿透或保证置顶。键盘可操作核心功能，但绘制控件尚未暴露原生屏幕阅读器语义。
+
+## 开发与验证
+
+```bash
+python -m unittest discover -s tests -v
+python -m pip install ruff
+python -m ruff check .
 ```
 
-## 🤝 贡献
+无显示环境可检查绘制与打包资源：
 
-欢迎提交 Issue 和 Pull Request！
+```bash
+SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy python 桌宠.py --frames 3 --data-dir /tmp/pondpet-check --screenshot /tmp/pondpet-check.png
+```
 
-1. Fork 本仓库
-2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 提交 Pull Request
+核心逻辑与渲染分离：`pondpet/model.py` 负责计时与待办，`storage.py` 负责存档，`app.py` 负责交互，`scene.py` 负责庭院，`ui.py` 负责控件与字体。原有 `python 桌宠.py` 启动方式继续可用。
 
-## 📜 开源协议
+[查看本次设计复核与实际截图](docs/REVIEW.md)。[插画提示词与图标来源](pondpet/assets/README.md)。
 
-本项目基于 MIT 协议开源，详见 [LICENSE](LICENSE) 文件。
+## 协议
 
-## 🙏 致谢
-
-- 原作者：[bruceyuan357](https://github.com/bruceyuan357)
-- 感谢所有贡献者的支持
-
----
-
-⭐ 如果你喜欢这个项目，请给它一个 Star！
+代码遵循仓库原有 [Apache License 2.0](LICENSE)。Lucide 图标保留其独立的 [ISC / MIT 许可证](pondpet/assets/icons/LICENSE)。
